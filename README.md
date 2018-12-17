@@ -3,22 +3,14 @@
 ## Создание «информационной системы для администрирования залов, сеансов и предварительного бронирования билетов».
 
 ### Студенту предоставляются следующие компоненты системы:
-* PHP-MVC-фреймворк для создания АПИ приложения
+* PHP-MVC-фреймворк для создания АПИ приложенияна базе Laravel Framework
     * ORM
     * Работа с коллекциями
     * Контроллеры
     * Роутинг
     * Авторизация/регистрация, управление ролями, гостевой доступ
-    * Работа с QR-кодами с примерами:
-                https://github.com/khanamiryan/php-qrcode-detector-decoder
-		http://phpqrcode.sourceforge.net/
-* JS-фреймворк для создания клиентской части
-    * Модели
-    * Коллекции моделей
-    * Методы CRUD для моделей и коллекций
-    * Шаблонизация twig https://github.com/twigjs/twig.js
-* Дизайн
-* Верстка
+* JS-фреймворк можно выбрать любой понравившийся(React, Angular, Vue, VanilaJS, jquery) - свой выбор согласовать с дипломным руководителем, обосновать выбор.
+* Верстка(папка /layouts)
 
 ## Задачи
 * Реализовать клиентскую часть: административный интерфейс, бронирование и контроль билетов на основе готовой верстки с использованием предоставленного, расширяемого фреймворка
@@ -70,3 +62,40 @@
 2. Реализация  базового АПИ: на данном этапе создается бекенд-приложение с возможностями работы с пользователями, авторизацией -  все роуты проверяются по средствам rest-клиента(для примера https://install.advancedrestclient.com/)
 3. Создание базового фронтенд-приложения: на этапе создается основа приложения, разделяется на разделы для гостя и авторизованных пользователей, а также подключение к АПИ.
 4. Итерационное наращивание функционала (Continuous Integration): Расширение функциональности приложения небольшими частями, включающими разработку моделей и контроллеров на бек и соответствующие формы на фронт.
+
+Стартовый набор для быстрого запуска API
+(Laravel API Boilerplate (Vagrant, Passport)
+)
+
+Сборка содержит в себе:
+* Laravel Passport - [laravel/passport](https://github.com/laravel/passport)
+* Dingo API - [dingo/api](https://github.com/dingo/api) <a href="https://github.com/dingo/api/wiki/Creating-API-Endpoints" target="_blank">(информация)</a>
+* Laravel-CORS [barryvdh/laravel-cors](http://github.com/barryvdh/laravel-cors) <a href="https://github.com/barryvdh/laravel-cors" target="_blank">(читать тут)</a>
+
+## Vagrant
+### Установить
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+
+### Склонировать репозиторий
+```
+git clone https://github.com/seregka-che/laravel-vagrant-passport
+```
+### Поднять локальный сервер на Vagrant
+```
+vagrant up
+```
+### Предустановленные роуты
+Зарегистрировать нового пользователя и сегенерировать для него пароль можно используя командную строку
+`php artisan passport:client --password`.
+
+* `POST api/auth/login`, Авторизация и обновление токена;
+* `POST api/auth/register`, Регистрация;
+* `POST api/auth/recovery`, Восстановление пароля;
+* `POST api/auth/reset`, Сброс пароля;
+* `POST api/auth/logout`, "выход" - стереть данные по токену авторизации ;
+
+### Сгенерировать ключи
+```
+php artisan passport:keys
+```
