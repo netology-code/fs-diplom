@@ -66,7 +66,7 @@
 [Обязательно для прочтения](https://github.com/netology-code/fs-diplom/blob/master/process.md) -> Подробнее процесс разработки дипломного проекта описан тут
 
 
-###Стартовый набор для быстрого запуска API
+### Стартовый набор для быстрого запуска API
 (Laravel API Boilerplate (Vagrant, Passport))
 
 Сборка содержит в себе:
